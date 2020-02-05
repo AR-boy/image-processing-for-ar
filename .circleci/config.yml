@@ -12,9 +12,9 @@ jobs:
     executor: my-executor
     steps:
       - checkout
-      - run: sudo apt install build-essential
-      - run: echo "something"
-      - run: sudo apt-get install ninja-build
+      - run: 'sudo apt install build-essential'
+      - run: 'echo "something"'
+      - run: 'sudo apt-get install ninja-build'
       - run: |
           cd lib
           wget --no-check-certificate --content-disposition https://github.com/google/googletest
