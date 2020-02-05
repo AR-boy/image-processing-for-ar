@@ -19,9 +19,11 @@ jobs:
         name: install cmake
         comamnd: sudo apt-get install cmake
         
+
       - run:
         name: install ninja  
         command: apt-get install ninja-build
+
 
       - run:
         name: download googletest
