@@ -12,25 +12,15 @@ jobs:
     executor: my-executor
     steps:
       - checkout
-      - run:
-          name: install g++ and gcc compilers
-          command: sudo apt install build-essential
-      - run:
-          name: install cmake
-          comamnd: echo "something"
-      - run:
-          name: install ninja  
-          command: sudo apt-get install ninja-build
-      - run:
-          name: download googletest
-          command: |
-            cd lib
-            wget --no-check-certificate --content-disposition https://github.com/google/googletest
-            curl -LJO https://github.com/google/googletest
-      - run: 
-          name: set-up build system and build tests
-          command: |
-            cd build
-            cmake -G "Ninja" ..
-            cmake --build .
-            ctest
+      - run: sudo apt install build-essential
+      - run: echo "something"
+      - run: sudo apt-get install ninja-build
+      - run: |
+          cd lib
+          wget --no-check-certificate --content-disposition https://github.com/google/googletest
+          curl -LJO https://github.com/google/googletest
+      - run: |
+          cd build
+          cmake -G "Ninja" ..
+          cmake --build .
+          ctest
