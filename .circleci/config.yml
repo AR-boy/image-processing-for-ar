@@ -21,16 +21,16 @@ jobs:
       - run:
           name: download googletest
           command: |
-          cd lib
-          wget --no-check-certificate --content-disposition https://github.com/google/googletest
-          curl -LJO https://github.com/google/googletest
+            cd lib
+            wget --no-check-certificate --content-disposition https://github.com/google/googletest
+            curl -LJO https://github.com/google/googletest
       - run: 
           name: set-up build system and build tests
           command: |
-          cd build
-          cmake -G "Ninja" ..
-          cmake --build .
-          ctest
+            cd build
+            cmake -G "Ninja" ..
+            cmake --build .
+            ctest
 
     
 
