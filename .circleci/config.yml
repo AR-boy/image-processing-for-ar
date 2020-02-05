@@ -10,17 +10,18 @@ executors:
 jobs:
   build:
     executor: my-executor
+    working_directory: ~/repo
     steps:
       - checkout
       - run: 'sudo apt install build-essential'
-      - run: 'echo "something"'
+      - run: 'sudo apt-get install cmake'
       - run: 'sudo apt-get install ninja-build'
       - run: |
-          cd lib
+          mkdir lib && cd lib
           wget --no-check-certificate --content-disposition https://github.com/google/googletest
           curl -LJO https://github.com/google/googletest
       - run: |
-          cd build
+          mkdir lib && cd build
           cmake -G "Ninja" ..
           cmake --build .
           ctest
