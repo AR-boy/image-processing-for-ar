@@ -9,26 +9,21 @@ jobs:
 
     steps:
       - checkout
-    
       - run:
         name: install g++ and gcc compilers
         command: sudo apt install build-essential
-      
       - run:
         name: install cmake
         comamnd: sudo apt-get install cmake
-
       - run:
         name: install ninja  
         command: apt-get install ninja-build
-
       - run:
         name: download googletest
         command: |
           cd lib
           wget --no-check-certificate --content-disposition https://github.com/google/googletest
           curl -LJO https://github.com/google/googletest
-
       - run: 
         name: set-up build system and build tests
         command: |
